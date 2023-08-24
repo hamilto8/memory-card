@@ -1,0 +1,87 @@
+body {
+  background-image: url("./assets/background_pixel_art.jpg");
+  text-align: center;
+  font-family: "Black Ops One", cursive;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: -1;
+}
+
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-content: center;
+  place-items: center;
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .pokemon-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .pokemon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pokemon-card {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  border: 3px solid white;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 150px;
+  margin: 10px;
+  padding: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.pokemon-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+.card-front {
+  display: block;
+}
+
+.card-back {
+  display: none;
+}
+
+.flipped .card-front {
+  display: none;
+}
+
+.flipped .card-back {
+  display: block;
+}
+
+.matched {
+  background-color: #9fccff;
+  color: white;
+  pointer-events: none;
+}
